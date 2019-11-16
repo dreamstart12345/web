@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Page result</title>
+		<link rel='stylesheet' href='css/bootstrap.css'>
+	</head>
+	<body>
+		<% for (var i in all) { %>
+  		<%= all[i].topic %> - <%= all[i].detail %> 
+			<a href='/detail?code=<%= all[i].code %>'>Views</a> <br>
+		<% } %>
+	</body>
+</html>
