@@ -1,10 +1,23 @@
-<% inculde head.html %>
-<div>
-  <form>
-    <h1>Login</h1>
-      <input name='email' placeholder='Your email'>
-      <input nmae='password' type='password' placeholder='Your password'>
-      <button>OK</button>
-    </form>
+<% include header.html %>
+
+<div class='container'>
+  <form method='post'>
+    <h3>Log In</h3>
+    <input name='email' placeholder='Your Email' class='form-control' autofocus>
+    <input name='password' type='password' placeholder='Your Password' class='form-control'>
+    <button class='btn btn-primary'>Log In</button>
+  </form>
 </div>
-<% inculde footer.html%>
+
+<style>
+  form {
+    max-width: 320px;
+    margin: 2rem auto;
+  }
+
+  input {
+    margin-bottom: 0.5rem;
+  }
+</style>
+
+<% include footer.html %>
