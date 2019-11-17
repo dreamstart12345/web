@@ -1,5 +1,5 @@
-
-github ok.
+https://github.com/dreamstart12345/web
+// npm install express ejs mysql cookie-parser
 
 Common Web Application
 
