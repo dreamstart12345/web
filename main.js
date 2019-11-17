@@ -23,7 +23,7 @@ server.get('/detail', showDetail)
 server.get(['/join','/register'], showRegister)
 server.post(['/join','/register'], readBody, saveNewMember)
 
-server.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+// server.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 server.use(express.static('public'))//เข้าได้โดยตรง
 server.use(showError)
 
