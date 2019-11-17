@@ -34,7 +34,8 @@ function checkPassword(req, res) {
 	var data = [req.body.email, req.body.password]
 	pool.query(sql, data, function (error, result) {
 		if (result.length == 1) {
-			res.send('Passed')
+			//res.send('Passed')
+			res.render('profile.html')
 		} else {
 			res.send('Failed')
 		}
