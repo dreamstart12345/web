@@ -126,9 +126,10 @@ function showError(req, res, next) {
 	res.render('error.html')
 }
 
-function showHome(req, res) {
+function showHome(req, res, next) {
 	res.render('index.html')
 	console.log('Server is running...')
+	next();
 }
 // Search Exactly: select * from post where topic=Cheap City Car
 // Search Similar: select * from post where topic like '%car%'
