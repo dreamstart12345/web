@@ -1,9 +1,7 @@
 https://github.com/dreamstart12345/web
 // npm install express ejs mysql cookie-parser
-
-
-
-//mongodb
+//Window-pc
+//Mac-Lapbtop
 
 Common Web Application
 
