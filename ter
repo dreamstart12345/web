@@ -1,0 +1,108 @@
+[33mcommit 332faa0ffe41c423bd7789b9d6937301feba4f1f[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: dreamstart12345 <ett0088@gmail.com>
+Date:   Wed Nov 20 02:16:04 2019 +0700
+
+    Mod main
+
+[33mcommit f143ee5017991a3f97b1977a2199da10510f9cc3[m
+Author: dreamstart12345 <ett0088@gmail.com>
+Date:   Wed Nov 20 02:13:51 2019 +0700
+
+    Mod view
+
+[33mcommit 0c5dc25a4ba2edee1f5ae8de97c35b64599ad2ae[m
+Author: dreamstart12345 <ett0088@gmail.com>
+Date:   Wed Nov 20 00:56:13 2019 +0700
+
+    Mod main
+
+[33mcommit 50a82ca49484bce3439e1be820a3aa7c87963b70[m
+Author: dreamstart12345 <ett0088@gmail.com>
+Date:   Wed Nov 20 00:54:50 2019 +0700
+
+    Mod index
+
+[33mcommit 25d4ff0668a3501fa3ec5ceff448ade37e4ddb98[m
+Author: dreamstart12345 <ett0088@gmail.com>
+Date:   Wed Nov 20 00:43:41 2019 +0700
+
+    Mod detail
+
+[33mcommit 4c5ff688ba1536ac69700ead4f5d905481d237e0[m
+Author: d-yangsom <ett0088@gmail.com>
+Date:   Mon Nov 18 20:21:27 2019 +0700
+
+    Mod detail
+
+[33mcommit b91c986eb571942bdfd1335b6f30cfa1ef06eece[m
+Author: d-yangsom <ett0088@gmail.com>
+Date:   Mon Nov 18 20:19:21 2019 +0700
+
+    Mod detail
+
+[33mcommit 5b4b4271607c974f18db71db87bb6c81b55dc2a8[m
+Merge: 98611c9 c36e348
+Author: d-yangsom <ett0088@gmail.com>
+Date:   Sun Nov 17 20:29:46 2019 +0700
+
+    Merge https://github.com/dreamstart12345/web
+
+[33mcommit 98611c9a9d73232fa4220946c9581b133d8ac898[m
+Author: d-yangsom <ett0088@gmail.com>
+Date:   Sun Nov 17 20:27:26 2019 +0700
+
+    mod main
+
+[33mcommit c36e348b61d2776dc97f0a015a9536aed1d9b306[m
+Author: root <root@node-04.us-central1-a.c.valiant-healer-246016.internal>
+Date:   Sun Nov 17 13:18:51 2019 +0000
+
+    Mod detail.txt
+
+[33mcommit 9897c65680f0743fe18ded6596571a430ba9a24e[m
+Author: d-yangsom <ett0088@gmail.com>
+Date:   Sun Nov 17 20:11:06 2019 +0700
+
+    mod profile
+
+[33mcommit 32a7c54778fab24459dba4d5d74024176565b623[m
+Author: d-yangsom <ett0088@gmail.com>
+Date:   Sun Nov 17 20:09:13 2019 +0700
+
+    Add profile
+
+[33mcommit 6d47cd9a94a4832e82a738ef52709d8df9877864[m
+Author: d-yangsom <ett0088@gmail.com>
+Date:   Sun Nov 17 19:56:11 2019 +0700
+
+    Mod main View/log
+
+[33mcommit 795761670e21893e8c8f828fd32b4e09b98a8822[m
+Author: d-yangsom <ett0088@gmail.com>
+Date:   Sun Nov 17 19:49:50 2019 +0700
+
+    Mod main.js
+
+[33mcommit 2140e5bcff863b301186f4123346fcd120973fec[m
+Author: d-yangsom <ett0088@gmail.com>
+Date:   Sun Nov 17 19:10:28 2019 +0700
+
+    Add login-header-footer
+
+[33mcommit fe1487d96fabfc0b36addd2cc8298b7355344a7a[m
+Author: d-yangsom <ett0088@gmail.com>
+Date:   Sun Nov 17 18:55:56 2019 +0700
+
+    Add bootstrap/css
+
+[33mcommit 5a1fc725c1c1a6510e34bfef2e6e1f79bf801e28[m
+Author: d-yangsom <ett0088@gmail.com>
+Date:   Sat Nov 16 23:35:16 2019 +0700
+
+    Add new commemt
+
+[33mcommit 2a369543c21ab9c06cd4d14130675ea00b1e28ff[m
+Author: root <root@node-04.us-central1-a.c.valiant-healer-246016.internal>
+Date:   Sat Nov 16 16:03:00 2019 +0000
+
+    initial commit
