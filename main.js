@@ -12,11 +12,11 @@ var source = {
 var mysql = require('mysql')
 var pool = mysql.createPool(source)
 var ejs = require('ejs')
-var parser  = require('cookie-parser') // load module
+var parser = require('cookie-parser') // load module
 var readCookie = parser()  // create parser
 server.engine('html', ejs.renderFile) // set EJS to default view engine
 var readBody = express.urlencoded({ extended: false }) // true for accepting
-var valid = [ ]
+var valid = []
 
 server.get(['/', '/home'], showHome)
 server.get('/browse', showAll)
@@ -27,7 +27,7 @@ server.get(['/join', '/register'], showRegisterPage)
 server.post(['/join', '/register'], readBody, saveNewMember)
 server.get('/login', showLogInPage)
 server.post('/login', readBody, checkPassword)
-server.get ('/profile', readCookie, showProfilePage)
+server.get('/profile', readCookie, showProfilePage)
 
 server.use(express.static('public'))
 server.use(showError)
@@ -41,38 +41,38 @@ function showProfilePage(req, res) {
 	// req.cookies มีค่าหรือเปล่า ถ้ามีใช้ค่า req.cookies.card 
 	//             ถ้าไม่มี ใช้ค่า null
 	if (valid[card]) {
-			var model = { }
-			model.user = valid[card] // เอาข้อมูลผู้ใช้ไปแสดงผลด้วย
-			res.render('profile.html', model) // Hello <%= user.name %>
+		var model = {}
+		model.user = valid[card] // เอาข้อมูลผู้ใช้ไปแสดงผลด้วย
+		res.render('profile.html', model) // Hello <%= user.name %>
 	} else {
-			res.redirect('/login')
+		res.redirect('/login')
 	}
 }
 
 function checkPassword(req, res) {
-	var sql  = 'select * from member where ' +
-						 '  email=? and password=sha2(?,512) '
-	var data = [ req.body.email, req.body.password ]
-	pool.query(sql, data, function(error, result) {
-			if (result.length == 1) {
-					var card = randomCard()
-					valid[card] = result[0] // user information
-					res.header('Set-Cookie', 'card=' + card)
-					res.redirect('/profile')
-			} else {
-					res.redirect('/login')
-			}
+	var sql = 'select * from member where ' +
+		'  email=? and password=sha2(?,512) '
+	var data = [req.body.email, req.body.password]
+	pool.query(sql, data, function (error, result) {
+		if (result.length == 1) {
+			var card = randomCard()
+			valid[card] = result[0] // user information
+			res.header('Set-Cookie', 'card=' + card)
+			res.redirect('/profile')
+		} else {
+			res.redirect('/login')
+		}
 	})
 }
 
 function randomCard() {
-	var a = [ ]
+	var a = []
 	for (var i = 0; i < 8; i++) {
-			var r = parseInt( Math.random() * 10000 )
-			if (r < 1000) r = '0'   + r
-			if (r <  100) r = '00'  + r
-			if (r <   10) r = '000' + r
-			a.push(r)
+		var r = parseInt(Math.random() * 10000)
+		if (r < 1000) r = '0' + r
+		if (r < 100) r = '00' + r
+		if (r < 10) r = '000' + r
+		a.push(r)
 	}
 	return a.join('-')
 }
