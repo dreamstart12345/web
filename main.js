@@ -128,6 +128,7 @@ function showError(req, res, next) {
 
 function showHome(req, res) {
 	res.render('index.html')
+	console.log('Server is running...')
 }
 // Search Exactly: select * from post where topic=Cheap City Car
 // Search Similar: select * from post where topic like '%car%'
