@@ -33,15 +33,12 @@ server.get('/post', readCookie,showPostPage)
 server.use(express.static('public'))
 server.use(showError)
 
-function showPostPage(req, res){
-	var card = null 
-	if(req.cookies != null) card = req.cookies.card
-
-	if(valid[card]){
-		var model = {}
-		model.user = valid[card]
-		res.render('profile.html', model)
-	}else{
+function showPostPage(req, res) {
+	var card = req.cookies ? req.cookies.card : null
+	if (valid[card]) {
+		var model = { member: valid[card] }
+		res.render('post.html', model)
+	} else {
 		res.redirect('/login')
 	}
 }
