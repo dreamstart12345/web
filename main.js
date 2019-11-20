@@ -28,9 +28,23 @@ server.post(['/join', '/register'], readBody, saveNewMember)
 server.get('/login', showLogInPage)
 server.post('/login', readBody, checkPassword)
 server.get('/profile', readCookie, showProfilePage)
+server.get('/post', readCookie,showPostPage)
 
 server.use(express.static('public'))
 server.use(showError)
+
+function showPostPage(req, res){
+	var card = null 
+	if(req.cookies != null) card = req.cookies.card
+
+	if(valid[card]){
+		var model = {}
+		model.user = valid[card]
+		res.render('profile.html', model)
+	}else{
+		res.redirect('/login')
+	}
+}
 
 function showProfilePage(req, res) {
 	var card = null    // เริ่มให้ card เป็น null
