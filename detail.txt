@@ -1,9 +1,9 @@
+//edit lats code from Macbook 26 November 2019
 https://github.com/dreamstart12345/web
 // npm install express ejs mysql cookie-parser
 //Window-pc
 //Mac-Lapbtop
-
-Common Web Application
+//Common Web Application
 
 app.use(savaTime)
 app.get('/', checkUserProfile, showHome)
