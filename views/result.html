@@ -1,6 +1,26 @@
 <% include header.html %>
-<% for (var i in all) { %>
-<%= all[i].topic %> - <%= all[i].detail %>
-<a href='/detail?code=<%= all[i].code %>'>Views</a> <br>
-<% } %>
+<br>
+<div class='search-panel'>
+  <div class='container'>
+    <form action='/result'>
+      <div class='input-group'>
+        <input name='product' class='form-control' placeholder='Search for trucks or parts' value='<%= product %>'>
+        <div class='input-group-append'>
+          <button class='btn btn-primary'>Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class='container'>
+  <%  for (var i in all) { %>
+  <%= all[i].topic %> - <%= all[i].detail %>
+
+  <a href='/detail?code=<%= all[i].code %>'>View</a>
+
+  <br>
+  <%  } %>
+</div>
+
 <% include footer.html %>
