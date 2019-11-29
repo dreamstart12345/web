@@ -17,6 +17,10 @@ var readCookie = parser()  // create parser
 server.engine('html', ejs.renderFile) // set EJS to default view engine
 var readBody = express.urlencoded({ extended: false }) // true for accepting
 var valid = []
+var multer = require('multer')
+var upload = multer({ dest: 'public' }) // all uploaded files to public folder
+var fs = require('fs')
+
 
 server.get(['/', '/home'], showHome)
 server.get('/browse', showAll)
@@ -29,15 +33,41 @@ server.get('/login', showLogInPage)
 server.post('/login', readBody, checkPassword)
 server.get('/logout', readCookie, logOutMember)
 server.get('/profile', readCookie, showProfilePage)
-server.get('/post', readCookie,showPostPage)
+server.get('/post', readCookie, showPostPage)
+server.post('/post', readCookie, upload.array('photo'), convert, postMessage)
 
 server.use(express.static('public'))
 server.use(showError)
 
-function logOutMember(req, res){
+
+function convert(req, res, next) {
+	req.photo = [] // สร้าง array ขึ้นมาเพื่อเก็บเฉพาะรูปภาพ
+	var count = 0
+	req.files.map(function (file) {
+		sharp('public/' + file.filename) // 1. แปลงรูปภาพเป็น .jpg ที่มีขนาดเล็กลง
+			.resize({
+				width: 640, height: 640,
+				fit: 'inside', withoutEnlargement: true
+			})
+			.toFile('public/' + file.filename + '.jpg', function (e, r) {
+				if (e == null) { // แปลงแล้วไม่มี error ต้องเก็บชื่อ file ไว้ด้วย
+					req.photo.push(file.filename + '.jpg')
+				}
+				// 2. ลบ file ชั่วคราวทิ้งไปให้หมด
+				fs.unlink('public/' + file.filename, function () {
+					count++
+					if (count == req.files.length) {
+						next() // call the next function
+					}
+				})
+			})
+	})
+}
+
+function logOutMember(req, res) {
 	var card = req.cookies ? req.cookies.card : null
 	delete valid[card]
-	console/log('>>>:Member have been logout.')
+	console / log('>>>:Member have been logout.')
 	res.render('logout.html')
 }
 
@@ -148,7 +178,7 @@ function showError(req, res, next) {
 function showHome(req, res) {
 	res.render('index.html')
 	console.log('Server is running...')
-	
+
 }
 // Search Exactly: select * from post where topic=Cheap City Car
 // Search Similar: select * from post where topic like '%car%'
