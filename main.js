@@ -63,7 +63,31 @@ function convert(req, res, next) {
 			})
 	})
 }
-
+function postMessage(req, res) {
+	var card = req.cookies ? req.cookies.card : null
+	if (valid[card]) {
+		var sql  = 'insert into post(topic,detail,`member`) ' +
+					' values(?,?,?)'
+		var data = [req.body.topic, req.body.detail, 
+					valid[card].code ]
+		pool.query(sql, data, function(error, result) {
+			var count = 0
+			for (var file of req.photo) {
+				// 3. file ใน req.photo คือรูปภาพ ต้องเก็บใน database
+				var sql  = 'insert into photo(path, post) values(?,?)'          
+				var data = [file, result.insertId]
+				pool.query(sql, data, function() {
+					count++
+					if (count == req.photo.length) {
+						res.redirect('/detail?code=' + result.insertId)
+					}
+				})
+			}
+		})
+	} else {
+		res.redirect('/login')
+	}
+}
 function logOutMember(req, res) {
 	var card = req.cookies ? req.cookies.card : null
 	delete valid[card]
