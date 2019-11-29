@@ -27,11 +27,19 @@ server.get(['/join', '/register'], showRegisterPage)
 server.post(['/join', '/register'], readBody, saveNewMember)
 server.get('/login', showLogInPage)
 server.post('/login', readBody, checkPassword)
+server.get('/logout', readCookie, logOutMember)
 server.get('/profile', readCookie, showProfilePage)
 server.get('/post', readCookie,showPostPage)
 
 server.use(express.static('public'))
 server.use(showError)
+
+function logOutMember(req, res){
+	var card = req.cookies ? req.cookies.card : null
+	delete valid[card]
+	console/log('>>>:Member have been logout.')
+	res.render('logout.html')
+}
 
 function showPostPage(req, res) {
 	var card = req.cookies ? req.cookies.card : null
