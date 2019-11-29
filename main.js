@@ -286,7 +286,7 @@ function listAll(req, res) {
 // ดังนั้น file ที่ผู้ใช้ upload เข้ามา ต้องแปลง file ให้เป็นมาตรฐานเดียวกัน นั่นคือต้องทำ 3 อย่าง
 // 1. convert 
 
-ในเว็บนี้คือ .jpg ไม่เกิน 640x640 pixel
+//ในเว็บนี้คือ .jpg ไม่เกิน 640x640 pixel
 // เช่น ผู้ใช้ upload มา 4 files ตัว multer จะสร้าง temporary file ให้ 4 files
 // จากนั้นใช้ sharp ลองแปลงให้เป็น file มาตรฐานเดียวกัน ถ้าแปลงได้จะได้ .jpg เป็น file ใหม่
 // และต้องเก็บชื่อ .jpg ที่ได้มา ลง array ไว้ด้วย ชื่อ req.photo เพื่อให้ function ถัดไปเอาไปใช้งาน
